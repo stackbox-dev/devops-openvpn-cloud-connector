@@ -63,3 +63,8 @@ EXPOSE 443/tcp
 
 # prometheus metrics exporter
 EXPOSE 9469/tcp
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
