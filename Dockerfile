@@ -53,6 +53,7 @@ COPY ./script_exporter.service /etc/systemd/system/script_exporter.service
 RUN chmod 644 /etc/systemd/system/script_exporter.service
 
 RUN sed -i 's/#ForwardToConsole=no/ForwardToConsole=yes/' /etc/systemd/journald.conf
+RUN echo "TTYLogLevel=debug" >> /etc/systemd/journald.conf
 
 # enable iptables setup service and openvpn3 on boot
 RUN systemctl enable iptables_setup.service
